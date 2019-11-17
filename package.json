@@ -15,5 +15,14 @@
   "bugs": {
     "url": "https://github.com/jarett-schwartz/FreeFoodFinder/issues"
   },
-  "homepage": "https://github.com/jarett-schwartz/FreeFoodFinder#readme"
+  "homepage": "https://github.com/jarett-schwartz/FreeFoodFinder#readme",
+  "dependencies": {
+    "async": "*",
+    "aws-sdk": "*",
+    "cookie-parser": "^1.4.4",
+    "ejs": "*",
+    "express": "3.3.8",
+    "express-session": "^1.17.0",
+    "lru-cache": "*"
+  }
 }

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<h1>Food</h1>
+  <%if (error != "") { %>
+    <font color="red"><%= error %><p>
+  <% } %>
+  <table>
+	  	<tr>
+	  	<th>Area of campus    |</th>
+	  	<th>Location    |</th>
+	  	<th>Type of food    |</th>
+	  	<th>Notes    |</th>
+	  </tr>
+	  <%for (var i = 0; i < f.length; i++) {%>
+	    <tr>
+	    	<td><%= f[i].area %></td>
+	    	<td><%= f[i].location %></td>
+	    	<td><%= f[i].type %></td>
+	    	<td><%= f[i].notes %></td>
+	    </tr>
+	  	<% } %>
+  </table>
+  <form action="/addfood" method="post">
+  	<div>
+    	<input type="text" name="area" placeholder="Area of campus">
+    	<input type="text" name="loc" placeholder="Location">
+	</div>
+	<div>
+    	<input type="text" name="type" placeholder="Type of food">
+    	<input type="text" name="notes" placeholder="Additional notes">
+	</div>
+    <div>
+    	<input type="submit" value="Add">
+    </div>
+  </form>
+  <a href="/logout">Logout</a>
+</body>
+</html>
