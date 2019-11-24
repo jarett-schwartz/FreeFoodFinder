@@ -8,7 +8,8 @@ var getFood = function(req, res) {
 
 
 var routes = {
-	getMain: getMain
+	getMain: getMain,
+	getFood: getFood
 }
 
 module.exports = routes;
