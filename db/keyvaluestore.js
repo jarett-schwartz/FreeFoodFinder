@@ -404,6 +404,31 @@
     });
   }
 
+  keyvaluestore.prototype.getUsers = function(callback) {
+    var self = this;
+    var self = this;
+    
+    var params = {
+        TableName: self.tableName,
+        AttributesToGet: ['keyword', 'value']
+    };
+
+    db.scan(params, function(err, data) {
+      var values = [];
+      
+      if (!err) {
+        for (var i = 0; i < data.Count; i++) {
+          values.push({
+            "key": data.Items[i].keyword['S'],
+            "value": data.Items[i].value['S']
+          });
+        }
+      }
+      
+      callback(err, values);
+    });
+  }
+
 
   /**
    * Update entry matching the keyword and inx

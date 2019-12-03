@@ -13,23 +13,25 @@ var username = 'user1';
 var pw = {
 	password: '123',
 	fullname: 'Tester',
-  phoneNumber: '12345'
+  phoneNumber: '19089383305'
 };
 
 var foodDBname = 'Food';
 var area = 'Engineering';
+const t = new Date();
 var props = {
+  location: 'Moore 212',
   type: 'donuts',
   description: 'A lot of them!',
   creator: 'user1',
-  time: JSON.stringify(new Date())
+  time: JSON.stringify(t)
 };
 
 // Upload initial data to DynamoDB
 
 var uploadUser = function(table, callback) {
 	console.log('Adding user1... ');
-	table.put(area, JSON.stringify(pw), function(err, data) {
+	table.put(username, JSON.stringify(pw), function(err, data) {
 		if (err) {
 			console.log('Oops, something went wrong when adding Tester: ' + err);
 		}

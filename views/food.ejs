@@ -6,18 +6,20 @@
     <font color="red"><%= error %><p>
   <% } %>
   <table>
-	  	<tr>
+	  <tr>
 	  	<th>Area of campus    |</th>
 	  	<th>Location    |</th>
 	  	<th>Type of food    |</th>
-	  	<th>Notes    |</th>
+	  	<th>Notes	|</th>
+	  	<th>Time posted</th>
 	  </tr>
-	  <%for (var i = 0; i < f.length; i++) {%>
+	  <%for (var i = 0; i < food.length; i++) {%>
 	    <tr>
-	    	<td><%= f[i].area %></td>
-	    	<td><%= f[i].location %></td>
-	    	<td><%= f[i].type %></td>
-	    	<td><%= f[i].notes %></td>
+	    	<td><%= food[i] %></td>
+	    	<td><%= info[i].location %></td>
+	    	<td><%= info[i].type %></td>
+	    	<td><%= info[i].description %></td>
+	    	<td><%= time[i] %></td>
 	    </tr>
 	  	<% } %>
   </table>

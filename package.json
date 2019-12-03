@@ -23,6 +23,7 @@
     "ejs": "*",
     "express": "3.3.8",
     "express-session": "^1.17.0",
-    "lru-cache": "*"
+    "lru-cache": "*",
+    "twilio": "^3.37.1"
   }
 }

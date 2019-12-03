@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h1>Enter the information below to signup</h1>
+  <form action="/createaccount" method="post">
+  	<div>
+    	<input type="text" name="username" class="form-control" placeholder="Enter user name here">
+	</div>
+	<div>
+    	<input type="password" name="password" class="form-control" placeholder="Enter password here">
+  </div>
+  <div>
+      <input type="text" name="name" class="form-control" placeholder="Enter full name here">
+  </div>
+  <div>
+      <input type="text" name="number" class="form-control" placeholder="Enter 10 digit phone number here">
+  </div>
+  <div>
+    	<input type="submit" class="btn" value="Submit">
+  </div>
+  </form>
+  <%if (req.query.message != "") { %>
+  <font color="red"><%= req.query.message %><p>
+  <% } %>
+</body>
+</html>
