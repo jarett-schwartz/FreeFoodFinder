@@ -1,7 +1,20 @@
 <!DOCTYPE html>
 <html>
-<body>
-  <h1>Enter the information below to signup</h1>
+<head>
+  <style>
+    h1 {
+      font-size: 50px;
+      font-weight: bold;
+    }
+    h2 {
+      font-size: 30px;
+      font-weight: bold;
+    }
+  </style>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body class="p-3 mb-2 bg-secondary text-white">
+  <h1>Enter the information below to sign up</h1>
   <form action="/createaccount" method="post">
   	<div>
     	<input type="text" name="username" class="form-control" placeholder="Enter user name here">
@@ -16,11 +29,12 @@
       <input type="text" name="number" class="form-control" placeholder="Enter 10 digit phone number here">
   </div>
   <div>
-    	<input type="submit" class="btn" value="Submit">
+    	<input type="submit" class="btn btn-dark btn-lg" value="Submit">
   </div>
   </form>
   <%if (req.query.message != "") { %>
   <font color="red"><%= req.query.message %><p>
   <% } %>
+  <button onclick="window.location.href = '/';" class="btn btn-dark btn-sm">Return to login</button>
 </body>
 </html>

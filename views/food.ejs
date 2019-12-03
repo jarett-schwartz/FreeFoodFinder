@@ -1,18 +1,80 @@
 <!DOCTYPE html>
 <html>
-<body>
-	<h1>Food</h1>
+<head>
+	<style>
+		table {
+		  font-family: Arial, Helvetica, sans-serif;
+		  border: 2px solid #555555;
+		  background-color: #552600;
+		  width: 100%;
+		  height: 100%;
+		  text-align: left;
+		  border-collapse: collapse;
+		}
+		table td, table th {
+		  border: 1px solid #555555;
+		  padding: 10px 10px;
+		}
+		table tbody td {
+		  font-size: 14px;
+		  font-weight: bold;
+		  color: #FFFFFF;
+		}
+		table tr:nth-child(even) {
+		  background: #A46109;
+		}
+		table thead {
+		  background: black;
+		  border-bottom: 0px solid #398AA4;
+		}
+		table thead th {
+		  font-size: 16px;
+		  font-weight: bold;
+		  color: white;
+		  text-align: left;
+		  border-left: 0px solid #398AA4;
+		}
+		table thead th:first-child {
+		  border-left: none;
+		}
+
+		table tfoot td {
+		  font-size: 13px;
+		}
+		table tfoot .links {
+		  text-align: right;
+		}
+		table tfoot .links a{
+		  display: inline-block;
+		  background: #FFFFFF;
+		  color: #398AA4;
+		  padding: 2px 8px;
+		  border-radius: 5px;
+		}
+		h1 {
+		  font-size: 50px;
+		  font-weight: bold;
+		}
+		h2 {
+		  font-size: 30px;
+		  font-weight: bold;
+		}
+	</style>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body class="p-3 mb-2 bg-secondary text-white">
+	<h1>Recent free food postings</h1>
   <%if (error != "") { %>
     <font color="red"><%= error %><p>
   <% } %>
-  <table>
-	  <tr>
-	  	<th>Area of campus    |</th>
-	  	<th>Location    |</th>
-	  	<th>Type of food    |</th>
-	  	<th>Notes	|</th>
+  <table class="table">
+	  <thead>
+	  	<th>Area of campus</th>
+	  	<th>Location</th>
+	  	<th>Type of food</th>
+	  	<th>Notes</th>
 	  	<th>Time posted</th>
-	  </tr>
+	  </thead>
 	  <%for (var i = 0; i < food.length; i++) {%>
 	    <tr>
 	    	<td><%= food[i] %></td>
@@ -23,19 +85,20 @@
 	    </tr>
 	  	<% } %>
   </table>
+  <h2>Create a new post below</h2>
   <form action="/addfood" method="post">
   	<div>
-    	<input type="text" name="area" placeholder="Area of campus">
-    	<input type="text" name="loc" placeholder="Location">
+    	<input type="text" name="area" class="form-control" placeholder="Area of campus">
+    	<input type="text" name="loc" class="form-control" placeholder="Location">
 	</div>
 	<div>
-    	<input type="text" name="type" placeholder="Type of food">
-    	<input type="text" name="notes" placeholder="Additional notes">
+    	<input type="text" name="type" class="form-control" placeholder="Type of food">
+    	<input type="text" name="notes" class="form-control" placeholder="Additional notes">
 	</div>
     <div>
-    	<input type="submit" value="Add">
+    	<input type="submit" class="btn btn-dark btn-lg" value="Add">
     </div>
   </form>
-  <a href="/logout">Logout</a>
+  <button onclick="window.location.href = '/logout';" class="btn btn-dark btn-sm">Logout</button>
 </body>
 </html>

@@ -17,6 +17,7 @@ app.get('/signup', routes.getSignup);
 app.post('/createaccount', routes.createAccount);
 app.get('/food', routes.getFood);
 app.post('/addfood', routes.addFood);
+app.get('/logout', routes.logout);
 
 app.listen(3000, () =>
 	console.log('listening on port 3000'));

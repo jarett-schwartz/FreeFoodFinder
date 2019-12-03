@@ -19,6 +19,7 @@
   "dependencies": {
     "async": "*",
     "aws-sdk": "*",
+    "bfg": "^0.3.0",
     "cookie-parser": "^1.4.4",
     "ejs": "*",
     "express": "3.3.8",

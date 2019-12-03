@@ -41,11 +41,8 @@ var createAccount = function(req, res) {
   var pw = req.body.password;
   var fullname = req.body.name;
   var number = req.body.number;
-  if (number.length !== 10 || isNaN(number)) {
-  	res.redirect('/signup?message=Please enter a 10 digit phone number with a country code ' + 
-  		'(e.g. 11234567890)');
-  }
   db.createAccount(username, pw, fullname, number, function(data, err){
+    console.log(err)
     if (err) {
       res.redirect('/signup?message=The following error occured: ' + err);
     } else if (!data) {
@@ -109,10 +106,10 @@ function sendMessages(nums, msg) {
 
 //Renders restaraunt reviews on page
 var getFood = function(req, res) {
-  /*if (!req.session.user) {
+  if (!req.session.user) {
     res.redirect('/');
     return;
-  }*/
+  }
   db.getFood(function(data, err) {
     if (err) {
       res.render('food.ejs', {error: 'Error loading: ' + err, food: null, info: null, user: username, time: null});
@@ -128,13 +125,18 @@ var getFood = function(req, res) {
           if (tDiff < 10800000) {
           	timeStamps.push(d.toTimeString().substring(0, 5));
           	foodList.push(e.key);
-          	ifnfoList.push(JSON.parse(e.value));
+          	infoList.push(JSON.parse(e.value));
           }
       })
       var username = [req.session.user];
       res.render('food.ejs', {error: '', food: foodList, info: infoList, user: username, time: timeStamps});
     }
   })
+}
+
+var logout = function(req, res) {
+  req.session.destroy();
+  res.redirect('/');
 }
 
 
@@ -144,7 +146,8 @@ var routes = {
 	checkLogin: submitLogin,
 	getSignup: getSignup, 
 	createAccount: createAccount,
-	addFood: addFood
+	addFood: addFood,
+	logout: logout
 }
 
 module.exports = routes;
